@@ -1,8 +1,8 @@
 package br.com.projetos.api.services;
 
-import br.com.projetos.api.domain.User;
+import br.com.projetos.api.domain.Usuario;
 
 public interface UserService {
 
-    User  findById(Integer id);
+    Usuario findById(Integer id);
 }
