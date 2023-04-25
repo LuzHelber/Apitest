@@ -11,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mock.web.MockHttpServletRequest;
 
+import java.time.LocalDateTime;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.MockitoAnnotations.openMocks;
 
@@ -32,6 +34,8 @@ class ResourceExceptionHandlerTest {
                 new ObjectNotFoundException(OBJETO_NÃO_ENCONTRADO),
                 new MockHttpServletRequest());
 
+        response.getBody().getPath();
+
         assertNotNull(response);
         assertNotNull(response.getBody());
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
@@ -40,6 +44,8 @@ class ResourceExceptionHandlerTest {
 
         assertEquals(OBJETO_NÃO_ENCONTRADO, response.getBody().getError());
         assertEquals(404, response.getBody().getStatus());
+        assertNotEquals("/user/2", response.getBody().getPath());
+        assertNotEquals(LocalDateTime.now(), response.getBody().getTimestamp());
 
     }
 
