@@ -32,8 +32,8 @@ class UserResourceTest {
     public static final String  NAME     = "Helber";
     public static final String  EMAIL    = "helber@mail.com";
     public static final String  PASSWORD = "3663";
-    private Usuario usuario;
-    private UserDTO userDTO;
+    private Usuario usuario = new Usuario();
+    private UserDTO userDTO = new UserDTO();
     private Optional<Usuario> optionalUsuario;
 
     @InjectMocks
